@@ -17,11 +17,11 @@ Ce dépôt contient l'ensemble des scripts, configurations et données numériqu
 Maquettes Revit (IFC4 · 6 fichiers)
         │
         ▼
-Réparation géométrique (Dynamo + ifcOpenShell)
+Réparation géométrique (Revit + Dynamo + ifcOpenShell)
         │
         ▼
 bim2sim v0.1.0  ──►  EnergyPlus 9.4.0 (ILAS)
-        │                    │s
+        │                    │
         ▼                    ▼
 12 archétypes thermiques   Post-traitement ventilation (SFP)
 (TEASER JSON)              + pompage (SPP)
