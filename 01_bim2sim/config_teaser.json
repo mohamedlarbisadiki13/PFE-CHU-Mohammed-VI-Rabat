@@ -1,0 +1,157 @@
+{
+  "project": "CHU Mohammed VI de Rabat — IGH",
+  "ifc_version": "IFC4",
+  "ifc_subtype": "Design Transfer View + Space Boundaries 2B",
+  "simulation_engine": "EnergyPlus",
+  "energyplus_version": "9.4.0",
+  "weather_file": "MAR_RK_RabatSale.AP.601350_TMYx.epw",
+  "bim2sim_version": "0.3.0",
+  "blocs": ["Bloc_A", "Bloc_B", "Bloc_C", "Bloc_D"],
+  "total_surface_m2": 42510,
+
+  "thermal_archetypes": {
+    "Type_1": {
+      "label": "Chambre patient standard",
+      "occupancy_density_m2_per_person": 10,
+      "lighting_W_m2": 10,
+      "equipment_W_m2": 15,
+      "ACH_h": 6,
+      "setpoint_heating_C": 22,
+      "setpoint_cooling_C": 26,
+      "schedule_ref": "ASHRAE_170_2017_Ward"
+    },
+    "Type_2A": {
+      "label": "Salle d'opération (bloc stérile)",
+      "occupancy_density_m2_per_person": 20,
+      "lighting_W_m2": 25,
+      "equipment_W_m2": 60,
+      "ACH_h": 20,
+      "setpoint_heating_C": 20,
+      "setpoint_cooling_C": 24,
+      "schedule_ref": "ASHRAE_170_2017_OR"
+    },
+    "Type_2B": {
+      "label": "Salle d'opération (pré-op/réveil)",
+      "occupancy_density_m2_per_person": 8,
+      "lighting_W_m2": 15,
+      "equipment_W_m2": 40,
+      "ACH_h": 15,
+      "setpoint_heating_C": 21,
+      "setpoint_cooling_C": 24,
+      "schedule_ref": "ASHRAE_170_2017_OR_adj"
+    },
+    "Type_3A": {
+      "label": "Soins intensifs / Réanimation",
+      "occupancy_density_m2_per_person": 12,
+      "lighting_W_m2": 12,
+      "equipment_W_m2": 50,
+      "ACH_h": 12,
+      "setpoint_heating_C": 22,
+      "setpoint_cooling_C": 25,
+      "schedule_ref": "ASHRAE_170_2017_ICU"
+    },
+    "Type_3B": {
+      "label": "Soins intensifs néonatals (NICU)",
+      "occupancy_density_m2_per_person": 8,
+      "lighting_W_m2": 10,
+      "equipment_W_m2": 45,
+      "ACH_h": 12,
+      "setpoint_heating_C": 24,
+      "setpoint_cooling_C": 26,
+      "schedule_ref": "ASHRAE_170_2017_NICU"
+    },
+    "Type_4": {
+      "label": "Consultation / Bureaux médicaux",
+      "occupancy_density_m2_per_person": 8,
+      "lighting_W_m2": 10,
+      "equipment_W_m2": 12,
+      "ACH_h": 6,
+      "setpoint_heating_C": 21,
+      "setpoint_cooling_C": 26,
+      "schedule_ref": "ASHRAE_170_2017_Exam"
+    },
+    "Type_5": {
+      "label": "Laboratoire d'analyses",
+      "occupancy_density_m2_per_person": 15,
+      "lighting_W_m2": 15,
+      "equipment_W_m2": 40,
+      "ACH_h": 10,
+      "setpoint_heating_C": 21,
+      "setpoint_cooling_C": 25,
+      "schedule_ref": "ASHRAE_170_2017_Lab"
+    },
+    "Type_6": {
+      "label": "Imagerie médicale (IRM/Scanner)",
+      "occupancy_density_m2_per_person": 20,
+      "lighting_W_m2": 8,
+      "equipment_W_m2": 80,
+      "ACH_h": 8,
+      "setpoint_heating_C": 20,
+      "setpoint_cooling_C": 22,
+      "schedule_ref": "ASHRAE_170_2017_Imaging"
+    },
+    "Type_7": {
+      "label": "Pharmacie hospitalière",
+      "occupancy_density_m2_per_person": 10,
+      "lighting_W_m2": 12,
+      "equipment_W_m2": 20,
+      "ACH_h": 6,
+      "setpoint_heating_C": 20,
+      "setpoint_cooling_C": 25,
+      "schedule_ref": "ASHRAE_170_2017_Pharmacy"
+    },
+    "Type_8A": {
+      "label": "Hall d'accueil / Circulation",
+      "occupancy_density_m2_per_person": 5,
+      "lighting_W_m2": 8,
+      "equipment_W_m2": 5,
+      "ACH_h": 4,
+      "setpoint_heating_C": 20,
+      "setpoint_cooling_C": 27,
+      "schedule_ref": "ASHRAE_170_2017_Corridor"
+    },
+    "Type_8B": {
+      "label": "Locaux techniques / Stockage",
+      "occupancy_density_m2_per_person": 50,
+      "lighting_W_m2": 5,
+      "equipment_W_m2": 5,
+      "ACH_h": 2,
+      "setpoint_heating_C": 18,
+      "setpoint_cooling_C": 30,
+      "schedule_ref": "ASHRAE_170_2017_Storage"
+    },
+    "Type_9": {
+      "label": "Restauration / Cuisine hospitalière",
+      "occupancy_density_m2_per_person": 4,
+      "lighting_W_m2": 12,
+      "equipment_W_m2": 25,
+      "ACH_h": 8,
+      "setpoint_heating_C": 20,
+      "setpoint_cooling_C": 26,
+      "schedule_ref": "ASHRAE_170_2017_Food"
+    }
+  },
+
+  "ACH_correction": {
+    "method": "ErP_2018_Eurovent_certified",
+    "heat_recovery_efficiency": 0.73,
+    "comment": "Correction de 73% appliquée sur ACH brut pour tenir compte de la récupération de chaleur certifiée Eurovent"
+  },
+
+  "materials": {
+    "external_wall": {"U_value_W_m2K": 0.45, "description": "Béton banché + isolant PSE"},
+    "roof": {"U_value_W_m2K": 0.25, "description": "Toiture terrasse isolée"},
+    "glazing": {
+      "U_value_W_m2K": 1.1,
+      "g_value": 0.32,
+      "product": "COOL-LITE XTREME 60/28",
+      "description": "Vitrage à contrôle solaire haute performance"
+    },
+    "floor_slab": {"U_value_W_m2K": 0.40, "description": "Plancher béton sur vide sanitaire"},
+    "internal_partition": {"U_value_W_m2K": 2.10, "description": "Cloison plâtre standard"},
+    "adiabatic_boundary": {"U_value_W_m2K": 0.0, "description": "Limite adiabatique entre blocs — hors périmètre simulation"}
+  },
+
+  "excluded_from_simulation": ["ECS", "ascenseurs", "éclairage extérieur"],
+  "modeled_energy_uses": ["chauffage", "refroidissement", "ventilation", "éclairage", "équipements médicaux", "pompage"]
+}
