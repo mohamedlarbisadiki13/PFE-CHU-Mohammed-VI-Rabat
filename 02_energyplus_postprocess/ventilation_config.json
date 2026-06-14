@@ -1,0 +1,14 @@
+{
+  "T-1": { "ACH": 2.0, "SFP": 300, "H": 8760, "foisonnement": 1.0 },
+  "T-2A": { "ACH": 3.0, "SFP": 300, "H": 8760, "foisonnement": 1.0 },
+  "T-2B": { "ACH": 2.0, "SFP": 300, "H": 8760, "foisonnement": 1.0 },
+  "T-3A": { "ACH": 4.0, "SFP": 300, "H": 8760, "foisonnement": 1.0 },
+  "T-3B": { "ACH": 6.0, "SFP": 300, "H": 8760, "foisonnement": 1.0 },
+  "T-4":  { "ACH": 1.5, "SFP": 300, "H": 8760, "foisonnement": 1.0 },
+  "T-5":  { "ACH": 2.0, "SFP": 300, "H": 8760, "foisonnement": 1.0 },
+  "T-6":  { "ACH": 4.0, "SFP": 300, "H": 8760, "foisonnement": 1.0 },
+  "T-7":  { "ACH": 1.0, "SFP": 300, "H": 8760, "foisonnement": 1.0 },
+  "T-8A": { "ACH": 3.0, "SFP": 300, "H": 8760, "foisonnement": 1.0 },
+  "T-8B": { "ACH": 2.0, "SFP": 300, "H": 8760, "foisonnement": 1.0 },
+  "T-9":  { "ACH": 1.5, "SFP": 300, "H": 8760, "foisonnement": 1.0 }
+}
