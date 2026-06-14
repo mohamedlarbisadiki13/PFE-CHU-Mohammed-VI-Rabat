@@ -1,157 +1,603 @@
 {
-  "project": "CHU Mohammed VI de Rabat — IGH",
-  "ifc_version": "IFC4",
-  "ifc_subtype": "Design Transfer View + Space Boundaries 2B",
-  "simulation_engine": "EnergyPlus",
-  "energyplus_version": "9.4.0",
-  "weather_file": "MAR_RK_RabatSale.AP.601350_TMYx.epw",
-  "bim2sim_version": "0.3.0",
-  "blocs": ["Bloc_A", "Bloc_B", "Bloc_C", "Bloc_D"],
-  "total_surface_m2": 42510,
-
-  "thermal_archetypes": {
-    "Type_1": {
-      "label": "Chambre patient standard",
-      "occupancy_density_m2_per_person": 10,
-      "lighting_W_m2": 10,
-      "equipment_W_m2": 15,
-      "ACH_h": 6,
-      "setpoint_heating_C": 22,
-      "setpoint_cooling_C": 26,
-      "schedule_ref": "ASHRAE_170_2017_Ward"
+    "version": "bim2sim-v0.2.3",
+    "Type_1_Bureaux_Administratif": {
+        "with_heating": true,
+        "T_threshold_heating": 293.15,
+        "with_cooling": true,
+        "T_threshold_cooling": 299.15,
+        "persons": {"/":[1, 10]},
+        "activity_degree_persons": 1.2,
+        "fixed_heat_flow_rate_persons": 70,
+        "internal_gains_moisture_no_people": 0.5,
+        "ratio_conv_rad_persons": 0.5,
+        "machines": 15.0,
+        "ratio_conv_rad_machines": 0.75,
+        "use_maintained_illuminance": false,
+        "fixed_lighting_power": 8.0,
+        "maintained_illuminance": 500.0,
+        "lighting_efficiency_lumen": 150,
+        "ratio_conv_rad_lighting": 0.9,
+        "use_constant_infiltration": true,
+        "base_infiltration": 0.2,
+        "max_user_infiltration": 1.0,
+        "max_overheating_infiltration": [3.0, 2.0],
+        "max_summer_infiltration": [1.0, 283.15, 290.15],
+        "winter_reduction_infiltration": [0.2, 273.15, 283.15],
+        "min_ahu": 3.0,
+        "max_ahu": 3.0,
+        "with_ahu": true,
+        "with_ideal_thresholds": false,
+        "heating_profile": [
+            293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 
+            293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 
+            293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15
+        ],
+        "cooling_profile": [
+            299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 
+            299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 
+            299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15
+        ],
+        "persons_profile": [
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2, 0.8, 1.0, 1.0, 1.0, 1.0, 
+            0.8, 1.0, 1.0, 1.0, 1.0, 0.5, 0.2, 0.0, 0.0, 0.0, 0.0, 0.0
+        ],
+        "machines_profile": [
+            0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.2, 0.8, 1.0, 1.0, 1.0, 1.0, 
+            0.8, 1.0, 1.0, 1.0, 1.0, 0.5, 0.2, 0.05, 0.05, 0.05, 0.05, 0.05
+        ],
+        "lighting_profile": [
+            0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.2, 0.8, 1.0, 1.0, 1.0, 1.0, 
+            1.0, 1.0, 1.0, 1.0, 1.0, 0.8, 0.2, 0.05, 0.05, 0.05, 0.05, 0.05
+        ]
     },
-    "Type_2A": {
-      "label": "Salle d'opération (bloc stérile)",
-      "occupancy_density_m2_per_person": 20,
-      "lighting_W_m2": 25,
-      "equipment_W_m2": 60,
-      "ACH_h": 20,
-      "setpoint_heating_C": 20,
-      "setpoint_cooling_C": 24,
-      "schedule_ref": "ASHRAE_170_2017_OR"
+    "Type_2A_Attente_Caisses": {
+        "with_heating": true,
+        "T_threshold_heating": 293.15,
+        "with_cooling": true,
+        "T_threshold_cooling": 299.15,
+        "persons": {"/":[1, 2]}, 
+        "activity_degree_persons": 1.2,
+        "fixed_heat_flow_rate_persons": 70,
+        "internal_gains_moisture_no_people": 0.5,
+        "ratio_conv_rad_persons": 0.5,
+        "machines": 15.0, 
+        "ratio_conv_rad_machines": 0.75,
+        "use_maintained_illuminance": false,
+        "fixed_lighting_power": 8.0,
+        "maintained_illuminance": 500.0,
+        "lighting_efficiency_lumen": 150,
+        "ratio_conv_rad_lighting": 0.9,
+        "use_constant_infiltration": true,
+        "base_infiltration": 0.2,
+        "max_user_infiltration": 1.0,
+        "max_overheating_infiltration": [3.0, 2.0],
+        "max_summer_infiltration": [1.0, 283.15, 290.15],
+        "winter_reduction_infiltration": [0.2, 273.15, 283.15],
+        "min_ahu": 3.0,
+        "max_ahu": 3.0,
+        "with_ahu": true,
+        "with_ideal_thresholds": false,
+        "heating_profile": [
+            293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 
+            293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 
+            293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15
+        ],
+        "cooling_profile": [
+            299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 
+            299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 
+            299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15
+        ],
+        "persons_profile": [
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 1.0, 1.0, 1.0, 1.0, 
+            0.8, 1.0, 1.0, 1.0, 1.0, 0.8, 0.3, 0.0, 0.0, 0.0, 0.0, 0.0
+        ],
+        "machines_profile": [
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 1.0, 1.0, 1.0, 1.0, 
+            0.8, 1.0, 1.0, 1.0, 1.0, 0.8, 0.3, 0.0, 0.0, 0.0, 0.0, 0.0
+        ],
+        "lighting_profile": [
+            0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.2, 0.8, 1.0, 1.0, 1.0, 1.0, 
+            1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.8, 0.2, 0.05, 0.05, 0.05, 0.05
+        ]
     },
-    "Type_2B": {
-      "label": "Salle d'opération (pré-op/réveil)",
-      "occupancy_density_m2_per_person": 8,
-      "lighting_W_m2": 15,
-      "equipment_W_m2": 40,
-      "ACH_h": 15,
-      "setpoint_heating_C": 21,
-      "setpoint_cooling_C": 24,
-      "schedule_ref": "ASHRAE_170_2017_OR_adj"
+    "Type_2B_Halls_Circulation": {
+        "with_heating": true,
+        "T_threshold_heating": 293.15,
+        "with_cooling": true,
+        "T_threshold_cooling": 299.15,
+        "persons": {"/":[1, 999]}, 
+        "activity_degree_persons": 1.2,
+        "fixed_heat_flow_rate_persons": 70,
+        "internal_gains_moisture_no_people": 0.5,
+        "ratio_conv_rad_persons": 0.5,
+        "machines": 0.0, 
+        "ratio_conv_rad_machines": 0.75,
+        "use_maintained_illuminance": false,
+        "fixed_lighting_power": 8.0,
+        "maintained_illuminance": 500.0,
+        "lighting_efficiency_lumen": 150,
+        "ratio_conv_rad_lighting": 0.9,
+        "use_constant_infiltration": true,
+        "base_infiltration": 0.2,
+        "max_user_infiltration": 1.0,
+        "max_overheating_infiltration": [3.0, 2.0],
+        "max_summer_infiltration": [1.0, 283.15, 290.15],
+        "winter_reduction_infiltration": [0.2, 273.15, 283.15],
+        "min_ahu": 3.0, 
+        "max_ahu": 3.0,
+        "with_ahu": true,
+        "with_ideal_thresholds": false,
+        "heating_profile": [
+            293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 
+            293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 
+            293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15
+        ],
+        "cooling_profile": [
+            299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 
+            299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 
+            299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15
+        ],
+        "persons_profile": [
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+        ],
+        "machines_profile": [
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+        ],
+        "lighting_profile": [
+            0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.2, 0.8, 1.0, 1.0, 1.0, 1.0, 
+            1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.8, 0.2, 0.1, 0.1, 0.1, 0.1
+        ]
     },
-    "Type_3A": {
-      "label": "Soins intensifs / Réanimation",
-      "occupancy_density_m2_per_person": 12,
-      "lighting_W_m2": 12,
-      "equipment_W_m2": 50,
-      "ACH_h": 12,
-      "setpoint_heating_C": 22,
-      "setpoint_cooling_C": 25,
-      "schedule_ref": "ASHRAE_170_2017_ICU"
+    "Type_3A_Consultation_Ambulatoire": {
+        "with_heating": true,
+        "T_threshold_heating": 295.15, 
+        "with_cooling": true,
+        "T_threshold_cooling": 299.15,
+        "persons": {"/":[1, 2.5]}, 
+        "activity_degree_persons": 1.2,
+        "fixed_heat_flow_rate_persons": 70,
+        "internal_gains_moisture_no_people": 0.5,
+        "ratio_conv_rad_persons": 0.5,
+        "machines": 5.0, 
+        "ratio_conv_rad_machines": 0.75,
+        "use_maintained_illuminance": false,
+        "fixed_lighting_power": 8.0,
+        "maintained_illuminance": 500.0,
+        "lighting_efficiency_lumen": 150,
+        "ratio_conv_rad_lighting": 0.9,
+        "use_constant_infiltration": true,
+        "base_infiltration": 0.2,
+        "max_user_infiltration": 1.0,
+        "max_overheating_infiltration": [3.0, 2.0],
+        "max_summer_infiltration": [1.0, 283.15, 290.15],
+        "winter_reduction_infiltration": [0.2, 273.15, 283.15],
+        "min_ahu": 3.0,
+        "max_ahu": 3.0,
+        "with_ahu": true,
+        "with_ideal_thresholds": false,
+        "heating_profile": [
+            295.15, 295.15, 295.15, 295.15, 295.15, 295.15, 295.15, 295.15, 
+            295.15, 295.15, 295.15, 295.15, 295.15, 295.15, 295.15, 295.15, 
+            295.15, 295.15, 295.15, 295.15, 295.15, 295.15, 295.15, 295.15
+        ],
+        "cooling_profile": [
+            299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 
+            299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 
+            299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15
+        ],
+        "persons_profile": [
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 1.0, 1.0, 1.0, 1.0, 
+            0.8, 1.0, 1.0, 1.0, 1.0, 0.8, 0.2, 0.0, 0.0, 0.0, 0.0, 0.0
+        ],
+        "machines_profile": [
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 1.0, 1.0, 1.0, 1.0, 
+            0.8, 1.0, 1.0, 1.0, 1.0, 0.8, 0.2, 0.0, 0.0, 0.0, 0.0, 0.0
+        ],
+        "lighting_profile": [
+            0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.2, 0.8, 1.0, 1.0, 1.0, 1.0, 
+            1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.8, 0.2, 0.05, 0.05, 0.05, 0.05
+        ]
     },
-    "Type_3B": {
-      "label": "Soins intensifs néonatals (NICU)",
-      "occupancy_density_m2_per_person": 8,
-      "lighting_W_m2": 10,
-      "equipment_W_m2": 45,
-      "ACH_h": 12,
-      "setpoint_heating_C": 24,
-      "setpoint_cooling_C": 26,
-      "schedule_ref": "ASHRAE_170_2017_NICU"
+    "Type_3B_Technique_Soins": {
+        "with_heating": true,
+        "T_threshold_heating": 293.15, 
+        "with_cooling": true,
+        "T_threshold_cooling": 299.15,
+        "persons": {"/":[1, 10]}, 
+        "activity_degree_persons": 1.2,
+        "fixed_heat_flow_rate_persons": 70,
+        "internal_gains_moisture_no_people": 0.5,
+        "ratio_conv_rad_persons": 0.5,
+        "machines": 15.0, 
+        "ratio_conv_rad_machines": 0.75,
+        "use_maintained_illuminance": false,
+        "fixed_lighting_power": 8.0,
+        "maintained_illuminance": 500.0,
+        "lighting_efficiency_lumen": 150,
+        "ratio_conv_rad_lighting": 0.9,
+        "use_constant_infiltration": true,
+        "base_infiltration": 0.2,
+        "max_user_infiltration": 1.0,
+        "max_overheating_infiltration": [3.0, 2.0],
+        "max_summer_infiltration": [1.0, 283.15, 290.15],
+        "winter_reduction_infiltration": [0.2, 273.15, 283.15],
+        "min_ahu": 6.0, 
+        "max_ahu": 6.0,
+        "with_ahu": true,
+        "with_ideal_thresholds": false,
+        "heating_profile": [
+            293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 
+            293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 
+            293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15
+        ],
+        "cooling_profile": [
+            299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 
+            299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 
+            299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15
+        ],
+        "persons_profile": [
+            0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.5, 0.8, 1.0, 1.0, 1.0, 1.0, 
+            0.8, 1.0, 1.0, 1.0, 1.0, 0.8, 0.6, 0.5, 0.4, 0.3, 0.3, 0.3
+        ],
+        "machines_profile": [
+            0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.6, 0.8, 1.0, 1.0, 1.0, 1.0, 
+            0.9, 1.0, 1.0, 1.0, 1.0, 0.9, 0.7, 0.6, 0.5, 0.4, 0.4, 0.4
+        ],
+        "lighting_profile": [
+            0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.5, 0.8, 1.0, 1.0, 1.0, 1.0, 
+            1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.8, 0.6, 0.4, 0.3, 0.3, 0.3
+        ]
     },
-    "Type_4": {
-      "label": "Consultation / Bureaux médicaux",
-      "occupancy_density_m2_per_person": 8,
-      "lighting_W_m2": 10,
-      "equipment_W_m2": 12,
-      "ACH_h": 6,
-      "setpoint_heating_C": 21,
-      "setpoint_cooling_C": 26,
-      "schedule_ref": "ASHRAE_170_2017_Exam"
+    "Type_4_Circulation_Degagements": {
+        "with_heating": false,
+        "T_threshold_heating": 283.15,
+        "with_cooling": false,
+        "T_threshold_cooling": 303.15,
+        "persons": {"/":[1, 999]}, 
+        "activity_degree_persons": 1.2,
+        "fixed_heat_flow_rate_persons": 70,
+        "internal_gains_moisture_no_people": 0.5,
+        "ratio_conv_rad_persons": 0.5,
+        "machines": 0.0, 
+        "ratio_conv_rad_machines": 0.75,
+        "use_maintained_illuminance": false,
+        "fixed_lighting_power": 8.0,
+        "maintained_illuminance": 500.0,
+        "lighting_efficiency_lumen": 150,
+        "ratio_conv_rad_lighting": 0.9,
+        "use_constant_infiltration": true,
+        "base_infiltration": 0.2,
+        "max_user_infiltration": 1.0,
+        "max_overheating_infiltration": [3.0, 2.0],
+        "max_summer_infiltration": [1.0, 283.15, 290.15],
+        "winter_reduction_infiltration": [0.2, 273.15, 283.15],
+        "min_ahu": 3.0,
+        "max_ahu": 3.0,
+        "with_ahu": true,
+        "with_ideal_thresholds": false,
+        "heating_profile": [
+            283.15, 283.15, 283.15, 283.15, 283.15, 283.15, 283.15, 283.15, 
+            283.15, 283.15, 283.15, 283.15, 283.15, 283.15, 283.15, 283.15, 
+            283.15, 283.15, 283.15, 283.15, 283.15, 283.15, 283.15, 283.15
+        ],
+        "cooling_profile": [
+            303.15, 303.15, 303.15, 303.15, 303.15, 303.15, 303.15, 303.15, 
+            303.15, 303.15, 303.15, 303.15, 303.15, 303.15, 303.15, 303.15, 
+            303.15, 303.15, 303.15, 303.15, 303.15, 303.15, 303.15, 303.15
+        ],
+        "persons_profile": [
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+        ],
+        "machines_profile": [
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+        ],
+        "lighting_profile": [
+            0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.2, 0.8, 1.0, 1.0, 1.0, 1.0, 
+            1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.8, 0.2, 0.1, 0.1, 0.1, 0.1
+        ]
     },
-    "Type_5": {
-      "label": "Laboratoire d'analyses",
-      "occupancy_density_m2_per_person": 15,
-      "lighting_W_m2": 15,
-      "equipment_W_m2": 40,
-      "ACH_h": 10,
-      "setpoint_heating_C": 21,
-      "setpoint_cooling_C": 25,
-      "schedule_ref": "ASHRAE_170_2017_Lab"
+    "Type_5_Locaux_Techniques": {
+        "with_heating": false,
+        "T_threshold_heating": 283.15,
+        "with_cooling": false,
+        "T_threshold_cooling": 303.15,
+        "persons": {"/":[1, 999]}, 
+        "activity_degree_persons": 1.2,
+        "fixed_heat_flow_rate_persons": 70,
+        "internal_gains_moisture_no_people": 0.5,
+        "ratio_conv_rad_persons": 0.5,
+        "machines": 45.0, 
+        "ratio_conv_rad_machines": 0.75,
+        "use_maintained_illuminance": false,
+        "fixed_lighting_power": 8.0,
+        "maintained_illuminance": 500.0,
+        "lighting_efficiency_lumen": 150,
+        "ratio_conv_rad_lighting": 0.9,
+        "use_constant_infiltration": true,
+        "base_infiltration": 0.2,
+        "max_user_infiltration": 1.0,
+        "max_overheating_infiltration": [3.0, 2.0],
+        "max_summer_infiltration": [1.0, 283.15, 290.15],
+        "winter_reduction_infiltration": [0.2, 273.15, 283.15],
+        "min_ahu": 3.0,
+        "max_ahu": 3.0,
+        "with_ahu": true,
+        "with_ideal_thresholds": false,
+        "heating_profile": [
+            283.15, 283.15, 283.15, 283.15, 283.15, 283.15, 283.15, 283.15, 
+            283.15, 283.15, 283.15, 283.15, 283.15, 283.15, 283.15, 283.15, 
+            283.15, 283.15, 283.15, 283.15, 283.15, 283.15, 283.15, 283.15
+        ],
+        "cooling_profile": [
+            303.15, 303.15, 303.15, 303.15, 303.15, 303.15, 303.15, 303.15, 
+            303.15, 303.15, 303.15, 303.15, 303.15, 303.15, 303.15, 303.15, 
+            303.15, 303.15, 303.15, 303.15, 303.15, 303.15, 303.15, 303.15
+        ],
+        "persons_profile": [
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+        ],
+        "machines_profile": [
+            1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 
+            1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0
+        ],
+        "lighting_profile": [
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1, 0.1, 0.0, 0.0, 
+            0.0, 0.0, 0.1, 0.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+        ]
     },
-    "Type_6": {
-      "label": "Imagerie médicale (IRM/Scanner)",
-      "occupancy_density_m2_per_person": 20,
-      "lighting_W_m2": 8,
-      "equipment_W_m2": 80,
-      "ACH_h": 8,
-      "setpoint_heating_C": 20,
-      "setpoint_cooling_C": 22,
-      "schedule_ref": "ASHRAE_170_2017_Imaging"
+    "Type_6_Locaux_Fluides_Gaines": {
+        "with_heating": false,
+        "T_threshold_heating": 283.15,
+        "with_cooling": false,
+        "T_threshold_cooling": 303.15,
+        "persons": {"/":[1, 999]}, 
+        "activity_degree_persons": 1.2,
+        "fixed_heat_flow_rate_persons": 70,
+        "internal_gains_moisture_no_people": 0.5,
+        "ratio_conv_rad_persons": 0.5,
+        "machines": 0.0, 
+        "ratio_conv_rad_machines": 0.75,
+        "use_maintained_illuminance": false,
+        "fixed_lighting_power": 8.0,
+        "maintained_illuminance": 500.0,
+        "lighting_efficiency_lumen": 150,
+        "ratio_conv_rad_lighting": 0.9,
+        "use_constant_infiltration": true,
+        "base_infiltration": 0.2,
+        "max_user_infiltration": 1.0,
+        "max_overheating_infiltration": [3.0, 2.0],
+        "max_summer_infiltration": [1.0, 283.15, 290.15],
+        "winter_reduction_infiltration": [0.2, 273.15, 283.15],
+        "min_ahu": 3.0,
+        "max_ahu": 3.0,
+        "with_ahu": true,
+        "with_ideal_thresholds": false,
+        "heating_profile": [
+            283.15, 283.15, 283.15, 283.15, 283.15, 283.15, 283.15, 283.15, 
+            283.15, 283.15, 283.15, 283.15, 283.15, 283.15, 283.15, 283.15, 
+            283.15, 283.15, 283.15, 283.15, 283.15, 283.15, 283.15, 283.15
+        ],
+        "cooling_profile": [
+            303.15, 303.15, 303.15, 303.15, 303.15, 303.15, 303.15, 303.15, 
+            303.15, 303.15, 303.15, 303.15, 303.15, 303.15, 303.15, 303.15, 
+            303.15, 303.15, 303.15, 303.15, 303.15, 303.15, 303.15, 303.15
+        ],
+        "persons_profile": [
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+        ],
+        "machines_profile": [
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+        ],
+        "lighting_profile": [
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1, 0.1, 0.0, 0.0, 
+            0.0, 0.0, 0.1, 0.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+        ]
     },
-    "Type_7": {
-      "label": "Pharmacie hospitalière",
-      "occupancy_density_m2_per_person": 10,
-      "lighting_W_m2": 12,
-      "equipment_W_m2": 20,
-      "ACH_h": 6,
-      "setpoint_heating_C": 20,
-      "setpoint_cooling_C": 25,
-      "schedule_ref": "ASHRAE_170_2017_Pharmacy"
+    "Type_7_Stockage_Logistique": {
+        "with_heating": true,
+        "T_threshold_heating": 293.15,
+        "with_cooling": true,
+        "T_threshold_cooling": 299.15,
+        "persons": {"/":[1, 999]}, 
+        "activity_degree_persons": 1.2,
+        "fixed_heat_flow_rate_persons": 70,
+        "internal_gains_moisture_no_people": 0.5,
+        "ratio_conv_rad_persons": 0.5,
+        "machines": 5.0, 
+        "ratio_conv_rad_machines": 0.75,
+        "use_maintained_illuminance": false,
+        "fixed_lighting_power": 8.0,
+        "maintained_illuminance": 500.0,
+        "lighting_efficiency_lumen": 150,
+        "ratio_conv_rad_lighting": 0.9,
+        "use_constant_infiltration": true,
+        "base_infiltration": 0.2,
+        "max_user_infiltration": 1.0,
+        "max_overheating_infiltration": [3.0, 2.0],
+        "max_summer_infiltration": [1.0, 283.15, 290.15],
+        "winter_reduction_infiltration": [0.2, 273.15, 283.15],
+        "min_ahu": 3.0,
+        "max_ahu": 3.0,
+        "with_ahu": true,
+        "with_ideal_thresholds": false,
+        "heating_profile": [
+            293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 
+            293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 
+            293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15
+        ],
+        "cooling_profile": [
+            299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 
+            299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 
+            299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15
+        ],
+        "persons_profile": [
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1, 0.1, 0.1, 0.1, 
+            0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+        ],
+        "machines_profile": [
+            1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 
+            1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0
+        ],
+        "lighting_profile": [
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1, 0.2, 0.3, 0.3, 0.3, 0.3, 
+            0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.1, 0.0, 0.0, 0.0, 0.0, 0.0
+        ]
     },
-    "Type_8A": {
-      "label": "Hall d'accueil / Circulation",
-      "occupancy_density_m2_per_person": 5,
-      "lighting_W_m2": 8,
-      "equipment_W_m2": 5,
-      "ACH_h": 4,
-      "setpoint_heating_C": 20,
-      "setpoint_cooling_C": 27,
-      "schedule_ref": "ASHRAE_170_2017_Corridor"
+    "Type_8A_Sanitaires": {
+        "with_heating": false,
+        "T_threshold_heating": 283.15,
+        "with_cooling": false,
+        "T_threshold_cooling": 303.15,
+        "persons": {"/":[1, 999]}, 
+        "activity_degree_persons": 1.2,
+        "fixed_heat_flow_rate_persons": 70,
+        "internal_gains_moisture_no_people": 0.5,
+        "ratio_conv_rad_persons": 0.5,
+        "machines": 5.48, 
+        "ratio_conv_rad_machines": 0.75,
+        "use_maintained_illuminance": false,
+        "fixed_lighting_power": 8.0,
+        "maintained_illuminance": 500.0,
+        "lighting_efficiency_lumen": 150,
+        "ratio_conv_rad_lighting": 0.9,
+        "use_constant_infiltration": true,
+        "base_infiltration": 0.2,
+        "max_user_infiltration": 1.0,
+        "max_overheating_infiltration": [3.0, 2.0],
+        "max_summer_infiltration": [1.0, 283.15, 290.15],
+        "winter_reduction_infiltration": [0.2, 273.15, 283.15],
+        "min_ahu": 3.0,
+        "max_ahu": 3.0,
+        "with_ahu": true,
+        "with_ideal_thresholds": false,
+        "heating_profile": [
+            283.15, 283.15, 283.15, 283.15, 283.15, 283.15, 283.15, 283.15, 
+            283.15, 283.15, 283.15, 283.15, 283.15, 283.15, 283.15, 283.15, 
+            283.15, 283.15, 283.15, 283.15, 283.15, 283.15, 283.15, 283.15
+        ],
+        "cooling_profile": [
+            303.15, 303.15, 303.15, 303.15, 303.15, 303.15, 303.15, 303.15, 
+            303.15, 303.15, 303.15, 303.15, 303.15, 303.15, 303.15, 303.15, 
+            303.15, 303.15, 303.15, 303.15, 303.15, 303.15, 303.15, 303.15
+        ],
+        "persons_profile": [
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2, 0.5, 0.5, 0.5, 0.5, 
+            0.8, 0.8, 0.5, 0.5, 0.5, 0.5, 0.2, 0.0, 0.0, 0.0, 0.0, 0.0
+        ],
+        "machines_profile": [
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2, 0.5, 0.5, 0.5, 0.5, 
+            0.8, 0.8, 0.5, 0.5, 0.5, 0.5, 0.2, 0.0, 0.0, 0.0, 0.0, 0.0
+        ],
+        "lighting_profile": [
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.6, 0.6, 0.6, 0.6, 
+            1.0, 1.0, 0.6, 0.6, 0.6, 0.6, 0.3, 0.0, 0.0, 0.0, 0.0, 0.0
+        ]
     },
-    "Type_8B": {
-      "label": "Locaux techniques / Stockage",
-      "occupancy_density_m2_per_person": 50,
-      "lighting_W_m2": 5,
-      "equipment_W_m2": 5,
-      "ACH_h": 2,
-      "setpoint_heating_C": 18,
-      "setpoint_cooling_C": 30,
-      "schedule_ref": "ASHRAE_170_2017_Storage"
+    "Type_8B_Vestiaires": {
+        "with_heating": true,
+        "T_threshold_heating": 293.15,
+        "with_cooling": true,
+        "T_threshold_cooling": 299.15,
+        "persons": {"/":[1, 999]}, 
+        "activity_degree_persons": 1.2,
+        "fixed_heat_flow_rate_persons": 70,
+        "internal_gains_moisture_no_people": 0.5,
+        "ratio_conv_rad_persons": 0.5,
+        "machines": 0.0, 
+        "ratio_conv_rad_machines": 0.75,
+        "use_maintained_illuminance": false,
+        "fixed_lighting_power": 8.0,
+        "maintained_illuminance": 500.0,
+        "lighting_efficiency_lumen": 150,
+        "ratio_conv_rad_lighting": 0.9,
+        "use_constant_infiltration": true,
+        "base_infiltration": 0.2,
+        "max_user_infiltration": 1.0,
+        "max_overheating_infiltration": [3.0, 2.0],
+        "max_summer_infiltration": [1.0, 283.15, 290.15],
+        "winter_reduction_infiltration": [0.2, 273.15, 283.15],
+        "min_ahu": 3.0,
+        "max_ahu": 3.0,
+        "with_ahu": true,
+        "with_ideal_thresholds": false,
+        "heating_profile": [
+            293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 
+            293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 
+            293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15
+        ],
+        "cooling_profile": [
+            299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 
+            299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 
+            299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15
+        ],
+        "persons_profile": [
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2, 0.5, 0.2, 0.2, 0.2, 
+            0.8, 0.8, 0.2, 0.2, 0.5, 0.5, 0.2, 0.0, 0.0, 0.0, 0.0, 0.0
+        ],
+        "machines_profile": [
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+        ],
+        "lighting_profile": [
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2, 0.5, 0.2, 0.2, 0.2, 
+            0.8, 0.8, 0.2, 0.2, 0.5, 0.5, 0.2, 0.0, 0.0, 0.0, 0.0, 0.0
+        ]
     },
-    "Type_9": {
-      "label": "Restauration / Cuisine hospitalière",
-      "occupancy_density_m2_per_person": 4,
-      "lighting_W_m2": 12,
-      "equipment_W_m2": 25,
-      "ACH_h": 8,
-      "setpoint_heating_C": 20,
-      "setpoint_cooling_C": 26,
-      "schedule_ref": "ASHRAE_170_2017_Food"
+    "Type_9_Enseignement_Reunion": {
+        "with_heating": true,
+        "T_threshold_heating": 293.15,
+        "with_cooling": true,
+        "T_threshold_cooling": 299.15,
+        "persons": {"/":[1, 3]}, 
+        "activity_degree_persons": 1.2,
+        "fixed_heat_flow_rate_persons": 70,
+        "internal_gains_moisture_no_people": 0.5,
+        "ratio_conv_rad_persons": 0.5,
+        "machines": 0.0, 
+        "ratio_conv_rad_machines": 0.75,
+        "use_maintained_illuminance": false,
+        "fixed_lighting_power": 8.0,
+        "maintained_illuminance": 500.0,
+        "lighting_efficiency_lumen": 150,
+        "ratio_conv_rad_lighting": 0.9,
+        "use_constant_infiltration": true,
+        "base_infiltration": 0.2,
+        "max_user_infiltration": 1.0,
+        "max_overheating_infiltration": [3.0, 2.0],
+        "max_summer_infiltration": [1.0, 283.15, 290.15],
+        "winter_reduction_infiltration": [0.2, 273.15, 283.15],
+        "min_ahu": 3.0,
+        "max_ahu": 3.0,
+        "with_ahu": true,
+        "with_ideal_thresholds": false,
+        "heating_profile": [
+            293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 
+            293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 
+            293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15, 293.15
+        ],
+        "cooling_profile": [
+            299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 
+            299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 
+            299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15, 299.15
+        ],
+        "persons_profile": [
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 1.0, 1.0, 1.0, 
+            0.5, 1.0, 1.0, 1.0, 1.0, 0.8, 0.5, 0.0, 0.0, 0.0, 0.0, 0.0
+        ],
+        "machines_profile": [
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+        ],
+        "lighting_profile": [
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.2, 0.8, 1.0, 1.0, 1.0, 
+            1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.8, 0.2, 0.0, 0.0, 0.0, 0.0
+        ]
     }
-  },
-
-  "ACH_correction": {
-    "method": "ErP_2018_Eurovent_certified",
-    "heat_recovery_efficiency": 0.73,
-    "comment": "Correction de 73% appliquée sur ACH brut pour tenir compte de la récupération de chaleur certifiée Eurovent"
-  },
-
-  "materials": {
-    "external_wall": {"U_value_W_m2K": 0.45, "description": "Béton banché + isolant PSE"},
-    "roof": {"U_value_W_m2K": 0.25, "description": "Toiture terrasse isolée"},
-    "glazing": {
-      "U_value_W_m2K": 1.1,
-      "g_value": 0.32,
-      "product": "COOL-LITE XTREME 60/28",
-      "description": "Vitrage à contrôle solaire haute performance"
-    },
-    "floor_slab": {"U_value_W_m2K": 0.40, "description": "Plancher béton sur vide sanitaire"},
-    "internal_partition": {"U_value_W_m2K": 2.10, "description": "Cloison plâtre standard"},
-    "adiabatic_boundary": {"U_value_W_m2K": 0.0, "description": "Limite adiabatique entre blocs — hors périmètre simulation"}
-  },
-
-  "excluded_from_simulation": ["ECS", "ascenseurs", "éclairage extérieur"],
-  "modeled_energy_uses": ["chauffage", "refroidissement", "ventilation", "éclairage", "équipements médicaux", "pompage"]
 }
