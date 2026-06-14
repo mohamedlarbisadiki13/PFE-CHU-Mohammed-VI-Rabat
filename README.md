@@ -1,7 +1,7 @@
 # PFE — GeoBIM & Simulation Énergétique · CHU Mohammed VI de Rabat
 
 > Mémoire de fin d'études · 2025–2026  
-> Spécialité : Géomatique / Efficacité Énergétique des Bâtiments  
+> Spécialité : Sciences Géomatiques et Ingénierie Topographique  
 
 ---
 
@@ -20,7 +20,7 @@ Maquettes Revit (IFC4 · 6 fichiers)
 Réparation géométrique (Dynamo + ifcOpenShell)
         │
         ▼
-bim2sim v0.3.0  ──►  EnergyPlus 9.4.0 (ILAS)
+bim2sim v0.1.0  ──►  EnergyPlus 9.4.0 (ILAS)
         │                    │s
         ▼                    ▼
 12 archétypes thermiques   Post-traitement ventilation (SFP)
@@ -51,9 +51,7 @@ bim2sim v0.3.0  ──►  EnergyPlus 9.4.0 (ILAS)
 ```
 ├── 01_bim2sim/               # Config TEASER, scripts bim2sim, preprocessing IFC
 ├── 02_energyplus_postprocess/ # Calcul E_fans (SFP) + E_pompes (SPP)
-├── 03_mms_georef/            # ICP, filtrage SOR, transformation Helmert Mercator→Merchich
-├── 04_pvsyst_ahp/            # Matrice AHP Saaty, paramètres PVsyst S1 & S2
-├── 05_weather/               # Fichier EPW TMYx Rabat-Salé + note discordance
+├── 03_weather/               # Fichier EPW TMYx Rabat-Salé
 └── annexes_compressed/       # Annexes allégées (JSON minifiés, notebooks)
 ```
 
@@ -64,31 +62,12 @@ bim2sim v0.3.0  ──►  EnergyPlus 9.4.0 (ILAS)
 | Outil | Version |
 |---|---|
 | Python | 3.10 |
-| bim2sim | 0.3.0 |
+| bim2sim | 0.1.0 |
 | EnergyPlus | 9.4.0 |
 | ifcOpenShell | 0.7.x |
 | PVsyst | 7.4 |
 | Meteonorm | 9 |
 | Fichier météo | TMYx Rabat-Salé · WMO #601350 |
-
----
-
-## Lancer les scripts
-
-```bash
-# 1. Installer les dépendances
-pip install bim2sim ifcopenshell pandas numpy
-
-# 2. Lancer la simulation bim2sim → EnergyPlus
-python 01_bim2sim/run_simulation.py
-
-# 3. Post-traitement ventilation + pompage
-python 02_energyplus_postprocess/ventilation_calc.py
-python 02_energyplus_postprocess/pumping_calc.py
-
-# 4. Calcul AHP
-python 04_pvsyst_ahp/ahp_saaty.py
-```
 
 ---
 
