@@ -49,11 +49,25 @@ bim2sim v0.1.0  ──►  EnergyPlus 9.4.0 (ILAS)
 ## Structure du dépôt
 
 ```
-├── 01_bim2sim/               # Config TEASER, scripts bim2sim, preprocessing IFC
-├── 02_energyplus_postprocess/ # Calcul E_fans (SFP) + E_pompes (SPP)
-├── 03_weather/               # Fichier EPW TMYx Rabat-Salé
-└── annexes_compressed/       # Annexes allégées (JSON minifiés, notebooks)
+├── 01_bim2sim/
+│   ├── run_simulation.py        # Orchestration bim2sim → EnergyPlus
+│   ├── ifc_extract_layers.py    # Extraction des couches/matériaux IFC (ifcOpenShell)
+│   ├── config_teaser.json       # Configuration TEASER (archétypes, matériaux)
+│   └── TypeElements_IWU.json    # Bibliothèque d'éléments types
+├── 02_energyplus_postprocess/
+│   ├── ventilation_calc.py      # Calcul E_ventilation (SFP, EN 13779)
+│   ├── pumping_calc.py          # Calcul E_pompage (ratio SPP)
+│   └── ventilation_config.json  # Paramètres aérauliques par archétype
+├── 03_weather/
+│   └── MAR_RK_Rabat-Sale.AP.601350_TMYx.epw   # Fichier météo TMYx Rabat-Salé
+├── 04_AHP_code/
+│   └── AHP_scenarios_PV.py      # Analyse multicritère AHP (Saaty)
+└── 05_pvsyst_rapports/
+    ├── PV_toitures_Project_Report.pdf     # Rapport PVsyst — Scénario 1 (Rooftop)
+    └── BIPV_toitures_Project_Report.pdf   # Rapport PVsyst — Scénario 2 (BIPV)
 ```
+
+> **Note** : le script de réparation géométrique (Dynamo/Revit, cf. Annexe A du mémoire) n'est pas encore versionné dans ce dépôt — seule l'extraction des couches IFC post-réparation (`ifc_extract_layers.py`) y figure actuellement.
 
 ---
 
